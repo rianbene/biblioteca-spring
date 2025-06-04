@@ -2,12 +2,18 @@ package com.exemplo.biblioteca_spring.model;
 
 public class Livro {
     private Long id;
-    private String autor;
+    @NotBlank(message = "Campo obrigatório")
+    @Size(min = 3, max = 100, message = "Campo deve ter entre 3 e 100 caracteres")
     private String titulo;
+    @NotBlank(message = "Campo obrigatório")
+    private String autor;
 
-    public Livro (String titulo, String autor){
+    private int anoPublicacao;
+
+    public Livro (String titulo, String autor, int anoPublicacao){
         this.titulo = titulo;
         this.autor = autor;
+        this.anoPublicacao = anoPublicacao;
     }
 
     public Long getId() {
@@ -32,5 +38,13 @@ public class Livro {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public int getAnoPublicacao() {
+        return anoPublicacao;
+    }
+
+    public void setAnoPublicacao(int anoPublicacao) {
+        this.anoPublicacao = anoPublicacao;
     }
 }
