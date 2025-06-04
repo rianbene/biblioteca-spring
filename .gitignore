@@ -1,0 +1,31 @@
+# Arquivos de build
+target/
+build/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Arquivos de IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+bin/
+
+# Arquivos de log
+*.log
+logs/
+
+# Arquivos temporários
+*.tmp
+*.bak
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Configurações do Spring Boot
+application.properties
