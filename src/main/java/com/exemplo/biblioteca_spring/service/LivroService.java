@@ -11,9 +11,9 @@ public class LivroService {
     private Long nextId = 1L;
 
     public LivroService (){
-        adicionarLivro(new Livro("Dom Quixote","Miguel de Cervantes"));
-        adicionarLivro(new Livro("1984","George Orwell"));
-        adicionarLivro(new Livro("O Senhor dos Anéis", "J.R.R. Tolkien"));
+        adicionarLivro(new Livro("Dom Quixote","Miguel de Cervantes",1605));
+        adicionarLivro(new Livro("1984","George Orwell",1949));
+        adicionarLivro(new Livro("A Sociedade do Anel", "J.R.R. Tolkien",1954));
     }
 
     public List<Livro> listarTodos(){
@@ -23,5 +23,16 @@ public class LivroService {
     public void adicionarLivro(Livro livro){
         livro.setId(nextId++);
         livros.add(livro);
+    }
+
+    public Livro buscarPorId(Long id) {
+        return livros.stream()
+                .filter(l -> l.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public void atualizarLivro(Livro livro, ){
+        livro.setId();
     }
 }

@@ -2,25 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Biblioteca Digital</title>
+    <title>Livros</title>
 </head>
 <body>
-<h1>Acervo de Livros</h1>
+<h1>Biblioteca</h1>
+
+<a href="/livros/novo">Adicionar Livro</a>
+
 <table>
-    <thead>
     <tr>
-        <th>ID</th>
         <th>Título</th>
         <th>Autor</th>
+        <th>Ano</th>
     </tr>
-    </thead>
-    <tbody>
     <tr th:each="livro : ${livros}">
-        <td th:text="${livro.id}">1</td>
-        <td th:text="${livro.titulo}">Título Exemplo</td>
-        <td th:text="${livro.autor}">Autor Exemplo</td>
+        <td th:text="${livro.titulo}"></td>
+        <td th:text="${livro.autor}"></td>
+        <td th:text="${livro.anoPublicacao}"></td>
+        <td>
+            <a th:href="@{/livros/editar/{id}(id=${livro.id})}">Editar</a>
+        </td>
     </tr>
-    </tbody>
 </table>
 </body>
 </html>
